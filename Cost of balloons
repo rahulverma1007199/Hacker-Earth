@@ -1,0 +1,164 @@
+You are conducting a contest at your college. This contest consists of two problems and  participants. You know the problem that a candidate will solve during the contest.
+
+You provide a balloon to a participant after he or she solves a problem. There are only green and purple-colored balloons available in a market. Each problem must have a balloon associated with it as a prize for solving that specific problem. You can distribute balloons to each participant by performing the following operation:
+
+Use green-colored balloons for the first problem and purple-colored balloons for the second problem
+Use purple-colored balloons for the first problem and green-colored balloons for the second problem
+You are given the cost of each balloon and problems that each participant solve. Your task is to print the minimum price that you have to pay while purchasing balloons.
+
+Input format
+
+First line:  that denotes the number of test cases ()
+For each test case: 
+First line: Cost of green and purple-colored balloons 
+Second line:  that denotes the number of participants ()
+Next  lines: Contain the status of users. For example, if the value of the  integer in the  row is , then it depicts that the  participant has not solved the  problem. Similarly, if the value of the  integer in the  row is , then it depicts that the  participant has solved the  problem.
+Output format
+For each test case, print the minimum cost that you have to pay to purchase balloons.
+SAMPLE INPUT    exp.out put 69 and 14 
+2
+9 6
+10
+1 1
+1 1
+0 1
+0 0
+0 1
+0 0
+0 1
+0 1
+1 1
+0 0
+1 9
+10
+0 1
+0 0
+0 0
+0 1
+1 0
+0 1
+0 1
+0 0
+0 1
+0 0
+2
+9 6
+10
+1 1
+1 1
+0 1
+0 0
+0 1
+0 0
+0 1
+0 1
+1 1
+0 0
+1 9
+10
+0 1
+0 0
+0 0
+0 1
+1 0
+0 1
+0 1
+0 0
+0 1
+0 0
+
+
+Code :
+package practiceCoding;
+import java.util.Scanner;
+public class PracticeHacker{
+	public static void main (String args[]) {
+	Scanner sc = new Scanner(System.in);
+	int t = sc.nextInt();
+	int onerow = 0;
+	int tworow = 0;
+	int cost[]= new int[2];
+	for (int i = 0;i<2;i++) {
+		cost[i]=sc.nextInt();
+	}
+	if (cost[0]<cost[1]) {
+		int temp = 0;
+		temp=cost[0];
+		cost[0]=cost[1];
+		cost[1]=temp;
+	}
+	int n=sc.nextInt();
+	int user[][]=new int[n][t];
+	for(int j=0;j<n;j++) {
+		for(int l=0;l<t;l++) {
+			user[j][l]=sc.nextInt();
+		}
+	}
+	for(int j=0;j<1;j++) {
+		for(int l=0;l<n;l++) {
+			if (user[l][0] == 1) {
+				onerow += 1;
+			}
+		}
+	}
+	for(int j=1;j<2;j++) {
+		for(int l=0;l<n;l++) {
+			if (user[l][1] == 1) {
+				tworow += 1;
+			}
+		}
+		
+	}
+	int result = 0;
+	if (onerow<tworow) {
+		result =cost[0]*onerow+ cost[1]*tworow;
+	}
+	else {
+		result =cost[0]*tworow + cost[1]*onerow;
+	
+	}int onerow1 = 0;
+	int tworow1 = 0;
+	int cost1[]= new int[2];
+	for (int i = 0;i<2;i++) {
+		cost1[i]=sc.nextInt();
+	}
+	if (cost1[0]<cost1[1]) {
+		int temp = 0;
+		temp=cost1[0];
+		cost1[0]=cost1[1];
+		cost1[1]=temp;
+	}
+	int n1=sc.nextInt();
+	int user1[][]=new int[n1][t];
+	for(int j1=0;j1<n1;j1++) {
+		for(int l1=0;l1<t;l1++) {
+			user[j1][l1]=sc.nextInt();
+		}
+	}
+	for(int j1=0;j1<1;j1++) {
+		for(int l1=0;l1<n1;l1++) {
+			if (user1[l1][0] == 1) {
+				onerow1 += 1;
+			}
+		}
+	}
+	for(int j1=1;j1<2;j1++) {
+		for(int l1=0;l1<n;l1++) {
+			if (user1[l1][1] == 1) {
+				tworow1 += 1;
+			}
+		}
+		
+	}
+	int result1 = 0;
+	if (onerow1<tworow1) {
+		result1 =cost1[0]*onerow1+ cost1[1]*tworow1;
+	}
+	else {
+		result1 =cost1[0]*tworow1 + cost1[1]*onerow1;
+	
+	}
+	System.out.println(result);
+	System.out.println(result1);
+	}
+}
