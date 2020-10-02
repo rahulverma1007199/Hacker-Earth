@@ -1,0 +1,52 @@
+Given two strings, a and b , that may or may not be of the same length, determine the minimum number of character deletions required to make a and b anagrams. Any characters can be deleted from either of the strings.
+
+Input :
+
+test cases,t
+two strings a and b, for each test case
+Output:
+
+Desired O/p
+
+Constraints :
+
+string lengths<=10000
+
+Note :
+
+Anagram of a word is formed by rearranging the letters of the word.
+
+For e.g. -> For the word RAM - MAR,ARM,AMR,RMA etc. are few anagrams.
+input: 1                         output:
+cde                                   4
+abc
+code:
+Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		sc.nextLine();
+		for(int l=0;l<t;l++) {
+			String a = sc.nextLine();
+			String b = sc.nextLine();
+			int alen = a.length();
+			int blen = b.length();
+			boolean visiteda[] = new boolean[alen];
+			boolean visitedb[] = new boolean[blen];
+			int sum = 0;
+			int result = alen+blen;
+			
+			for (int i=0;i<alen;i++) {
+			char c = a.charAt(i);
+			for(int j=0;j<blen;j++) {
+				char d = b.charAt(j);
+				if(c==d&&!visiteda[i]&&!visitedb[j]) {
+					sum = sum +2;
+					visiteda[i]=true;
+					visitedb[j]=true;
+				}
+				
+			}
+		}
+		result = result - sum;
+		System.out.println(result);
+		}
+		
