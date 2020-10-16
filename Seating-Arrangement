@@ -1,0 +1,72 @@
+import java.util.Scanner;
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int op = 0;
+		for(int i=0;i<N;i++) {
+			int T = sc.nextInt();
+			if (T<=12) {
+				op = 12 -(T-1);
+				side(op,T);
+			}
+			else if(T<=24 && T>12) {
+				op = (24 -(T-1));
+				op+=12;
+				side(op,T);
+				}
+			else if(T<=36 && T>24) {
+				op = (36 -(T-1));
+				op+=24;
+				side(op,T);
+				}
+			else if(T<=48 && T>36) {
+				op = (48 -(T-1));
+				op+=36;
+				side(op,T);
+				}
+			else if(T<=60 && T>48) {
+				op = (60 -(T-1));
+				op+=48;
+				side(op,T);
+				}
+			else if(T<=72 && T>60) {
+				op = (72 -(T-1));
+				op+=60;
+				side(op,T);
+				}
+			else if(T<=84 && T>72) {
+				op = (84 -(T-1));
+				op+=72;
+				side(op,T);
+				}
+			else if(T<=96 && T>84) {
+				op = (96 -(T-1));
+				op+=84;
+				side(op,T);
+				}
+			else if(T<=108 && T>96) {
+				op = (108 -(T-1));
+				op+=96;
+				side(op,T);
+				}
+		}
+		
+		 
+	}
+
+	 public static void side(int output,int input) {
+	 int subs = Math.abs(output-input);
+	 String sside="";
+	 if (subs == 9 ||subs == 3 ) {
+		 sside = "MS";
+	 }
+	 else if (subs == 1 ||subs == 11 ) {
+		 sside = "WS";
+	 }
+	 else if (subs == 5 ||subs == 7 ) {
+		 sside = "AS";
+	 }
+	 System.out.println( output+" "+sside);
+    }
+}
