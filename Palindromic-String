@@ -1,0 +1,44 @@
+You have been given a String S. You need to find and print whether this string is a palindrome or not. If yes, print "YES" (without quotes), else print "NO" (without quotes).
+
+Input Format
+The first and only line of input contains the String S. The String shall consist of lowercase English alphabets only.
+
+Output Format
+Print the required answer on a single line.
+
+Constraints 
+
+Note
+String S consists of lowercase English Alphabets only.
+
+Code - 
+package practiceCoding;
+import java.util.Scanner;
+public class ToggleString {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String inp = sc.nextLine();
+		toggleString(inp);
+
+		}
+public static void toggleString(String inp){
+	int lenS = inp.length();
+	char[] arr = inp.toCharArray();
+	for  (int i=0;i<lenS;i++) {
+		char check = arr[i];
+		boolean b = Character.isUpperCase(check);
+		if(b) {
+			char neww = Character.toLowerCase(check);
+			arr[i] = neww;
+		}
+		else {
+			char neww = Character.toUpperCase(check);
+			arr[i] = neww;	
+		}
+			}
+	for(int i=0;i<lenS;i++) {
+		System.out.print(arr[i]);
+	}
+}
+	}
