@@ -1,0 +1,43 @@
+You have been given a String S. You need to find and print whether this string is a palindrome or not. If yes, print "YES" (without quotes), else print "NO" (without quotes).
+
+Code:
+
+import  java.util.Scanner;
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+ Scanner sc = new Scanner(System.in);
+	String input = sc.nextLine();
+	boolean isP = true;
+	int len = input.length();
+	if (len==1) {
+		System.out.println("YES");
+		}
+	else {
+		for(int i=0;i<len/2;i++) {
+			if(isP) {
+			char check = input.charAt(i);
+			int checklength = (len-1)-i;
+			char cHeck = input.charAt(checklength);
+			if(check==cHeck ) {
+				isP = true;
+			}
+			else {
+				isP= false;
+				System.out.println("NO");
+				break;
+			}
+			}
+			
+			else {
+				System.out.println("NO");
+				break;
+			}
+			
+		}
+		if(isP) {
+			System.out.println("YES");
+		}
+		
+	}
+    }
+}
