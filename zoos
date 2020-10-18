@@ -1,0 +1,38 @@
+You are required to enter a word that consists of  and  that denote the number of Zs and Os respectively. The input word is considered similar to word zoo if .
+
+Determine if the entered word is similar to word zoo.
+
+For example, words such as zzoooo and zzzoooooo are similar to word zoo but not the words such as zzooo and zzzooooo.
+
+code:
+import java.util.Scanner;
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        Scanner sc = new Scanner(System.in);
+		String zo = sc.nextLine();
+		int len = zo.length();
+		int z = 0;
+		int o = 0;
+		if(len>20) {
+			System.out.println("No");
+		}
+		else {
+			for(int i=0;i<len;i++) {
+				char zz  = zo.charAt(i);
+				if(zz == 'z') {
+					z++;
+				}
+				else if(zz=='o') {
+					o++;
+				}
+			}
+		}
+		int zval = 2*z;
+		if(zval==o) {
+			System.out.println("Yes");
+		} 
+		else {
+			System.out.println("No");
+		}
+    }
+}
